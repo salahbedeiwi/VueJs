@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Instance</title>
+</head>
+<body>
+    <div id="app1">{{message}} and my name is {{name.length}}</div>
+    <div id="app2" v-bind:title="title">{{title}} and my name is {{name.toUpperCase()}}</div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        //View Model
+        new Vue({
+            el : "#app1",
+            data : {
+                message : "Welcome App1",
+                name : "Salah"
+            }
+        });
+        new Vue({
+            el : "#app2",
+            data : {
+                title : new Date().toLocaleString(),
+                name : "Salah"
+            }
+        });
+        
+    </script>
+</body>
+</html>
