@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVVM Pattern</title>
+</head>
+<body>
+    <div id="lesson2">{{ message }}</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var myData = {
+            message : "Hello Vue Js"
+        };
+        //VIEWMODEL
+        new Vue({
+            el : "#lesson2", //VIEW
+            data: myData //MODEL
+        });
+    </script>
+</body>
+</html>
