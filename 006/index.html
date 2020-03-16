@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Types</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="my-data">
+        <p>{{name + ' is ' + age*2}}</p>
+        <p>{{ isInSchool ? "Yes" : "No"}}</p>
+        <p>First Lang: {{langs[0]}}</p>
+        <p>First Lang: {{langs[1]}}</p>
+        <p>First School: {{schools[0].schoolName}} </p>
+
+    </div>
+    <script>
+        new Vue({
+            el : "#my-data",
+            //Data Types
+            data: {
+                name : "Salah Bedeiwi", //String
+                age  : 31, //Number
+                isInSchool : false, //Boolean
+                langs : ['English', 'Arabic','Spanish'], //Array
+                schools : [
+                    {
+                        schoolName : "UMN",
+                        schoolYear : 2010
+                    },
+                    {
+                        schoolName : "CAIRO University",
+                        schoolYear : 2015
+                    }
+                ], //Object
+                todayIs : new Date().toLocaleString(), //Date
+                empty : null //Null
+            }
+        });
+    </script>
+</body>
+</html>
