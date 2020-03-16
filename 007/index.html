@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Methods (JS Functions)</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="my-data">
+        <p>{{ welcomeMsg() }}</p>
+        <p>{{ sayMyName() }}</p>
+        <p>My age is  {{ calculateMyAge(1988) }}</p>
+        <p>Date is:  {{ myDate }}</p>
+        <button @click="changeMyDate">Click to change date</button>
+    </div>
+    <script>
+        new Vue({
+            el : "#my-data",
+            data: {
+               x : 5, 
+               name: "salah",
+               myDate : new Date().toLocaleString()
+            },
+            methods : {
+                welcomeMsg : function(){
+                    return "Welcome to Vue Js";
+                },
+                sayMyName : function(){
+                    return this.name;
+                },
+                changeMyDate: function(){
+                    this.myDate = new Date().toLocaleString();
+                },
+                calculateMyAge : function(myYear){
+                    var myAge = 2020 - myYear;
+                    return myAge;
+                }
+
+
+            }
+        });
+    </script>
+</body>
+</html>
