@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Directives [v-text]</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="my-data">
+        <div>{{ courseName + '!!!' }}</div>
+        <div v-text="courseName + ' - V-text'"></div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el : "#my-data",
+            data: {
+               courseName: "Directives",
+            }
+        });
+    </script>
+</body>
+</html>
