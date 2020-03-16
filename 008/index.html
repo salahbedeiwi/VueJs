@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Directives (Special Attributes)</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="my-data">
+        <div v-bind:id="courseName" v-bind:class="courseName" 
+                v-bind:width="width">
+            {{ courseName }}
+        </div>
+        <input type="text" v-model="courseName" />
+        <div v-if="seen">Show or Hide</div>
+        <div @click="clickHere">Click</div>
+        <a v-bind:href="url">Go to this Page</a>
+    </div>
+    <script>
+        var vm = new Vue({
+            el : "#my-data",
+            data: {
+               courseName: "Directives",
+               welcomeMessage: "<h1>Welcome to Directives</h1>",
+               seen : false,
+               url : 'index.html',
+               width : 300
+            },
+            methods : {
+                clickHere : function(){
+                    this.courseName = "Clicked on Directives";
+                    return this.courseName;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
