@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Directives [v-for] - Object</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+    </script>
+</head>
+<body>
+    <div id="my-data">
+        <p v-html="courseTitle"></p>
+        <hr>
+        <div v-for="(val, key, index) in fruit">
+            <span :id="'fruit'+index">
+                {{ capitalizeFirstLetter(key) }} => {{ val }}
+            </span>
+        </div>
+        <hr>
+        <ul>
+            <li v-for="(vegetable, index) in vegetables">
+                 #{{ index+1 }} {{ vegetable }}
+            </li>
+        </ul>
+        <hr>
+        <div v-for="(fruit, index) in fruits">
+            Fruit #{{index}}<br>
+            <span v-for="(val, key, index) in fruit">
+                {{ capitalizeFirstLetter(key) }}: {{val}} <br>
+            </span>
+            <hr>
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el : "#my-data",
+            data: {
+                courseTitle: "<b>Loop through Nested Object<b/>",
+                vegetables : ['Tomatoes', 'Potatoes', 'Cucumbers'],
+                //Object => key:value
+                fruit: {
+                        name  : "Apple",
+                        price : 10.55,
+                        qty   : 150
+                },
+                //Array of Objects
+                fruits : [
+                    {
+                        name    : 'Apple',
+                        price   : 10.55
+                    },
+                    {
+                        name    : 'Mango',
+                        price   : 9.55
+                    },
+                    {
+                        name    : 'Orange',
+                        price   : 8.55
+                    }
+                ]
+            },
+            methods: {
+                capitalizeFirstLetter : function (word){
+                    // UpperCase First Letter
+                    var fLetter = word[0].toUpperCase(); 
+                    // Delete First Letter
+                    var excludeFLetter = word.slice(1); 
+                    return fLetter + excludeFLetter;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
