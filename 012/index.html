@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Directives [v-for] - Object</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+    </script>
+</head>
+<body>
+    <div id="my-data">
+        <p v-html="courseTitle"></p>
+        <p>Fruit Price: {{ fruit.price }}</p>
+        <hr>
+        <hr>
+        <div v-for="(val, key, index) in fruit">
+            <span :id="'fruit'+index">
+                {{ capitalizeFirstLetter(key) }} => {{ val }}
+            </span>
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el : "#my-data",
+            data: {
+                courseTitle: "<b>Loop through an object<b/>",
+                //Object => key:value
+                fruit: {
+                        name  : "Apple",
+                        price : 10.55,
+                        qty   : 150
+                }
+            },
+            methods: {
+                capitalizeFirstLetter : function (word){
+                    // UpperCase First Letter
+                    var fLetter = word[0].toUpperCase(); 
+                    // Delete First Letter
+                    var excludeFLetter = word.slice(1); 
+                    return fLetter + excludeFLetter;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
