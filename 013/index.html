@@ -24,7 +24,7 @@
         <hr>
         <div v-for="(fruit, index) in fruits">
             Fruit #{{index}}<br>
-            <span v-for="(val, key, index) in fruit">
+            <span v-for="(val, key, index2) in fruit">
                 {{ capitalizeFirstLetter(key) }}: {{val}} <br>
             </span>
             <hr>
