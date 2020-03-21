@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> [018] v-cloak directive </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+    </script>
+    <style>
+        [v-cloak] { display: none; } 
+        /* remove {{ }} till vue js is loaded */
+    </style>
+</head>
+<body>
+    <div id="my-data">
+        <p v-text="courseTitle"></p>
+        <hr>
+        <div v-cloak v-for="c in courses">{{ c }}</div>  
+    </div>
+    <script>
+        document.body.style.backgroundColor = "#FFF";   
+        setTimeout(function(){
+            document.body.style.backgroundColor = "black";   
+            document.body.style.color = "#fff";   
+        
+            var vm = new Vue({
+                el : "#my-data",
+                data: {
+                    courseTitle : "Directives: v-cloak",
+                    isSubscribed: true,
+                    courses : ["HTML", "CSS", "JS"]        
+                }
+            });
+        }, 5500);
+    </script>
+</body>
+</html>
