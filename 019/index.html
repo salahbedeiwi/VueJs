@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> [019] v-pre directive </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+    </script>
+    </head>
+<body>
+    <div id="my-data">
+        <p v-text="courseTitle"></p>
+        <hr>
+        <div v-pre>
+            <!-- 
+                Skips Compilation (do not compile/render these directives)
+                for all innerHtml that 
+                have v-pre attribute.
+            -->
+            <p>{{ name }}</p>
+            <p>{{ courses[0] }}</p>
+        </div>  
+    </div>
+    <script>    
+        var vm = new Vue({
+            el : "#my-data",
+            data: {
+                courseTitle : "Directives: v-pre",
+                name        : "Salah Bedeiwi",
+                courses     : ["HTML", "CSS", ]
+            }
+        });
+    </script>
+</body>
+</html>
