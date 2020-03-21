@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> [017] v-once directive </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+    </script>
+</head>
+<body>
+    <div id="my-data">
+        <p v-html="courseTitle"></p>
+        <hr>
+        <div>{{ courses[0] }}</div> <hr>
+        <div v-once>
+            {{ courses[0] }}
+        </div><hr>
+        <div v-for="c in courses" v-once>
+            {{ c }}
+        </div>
+        <div v-for="c in courses">
+            {{ c }}
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el : "#my-data",
+            data: {
+                courseTitle : "<b>Directives: v-once</b>",
+                isSubscribed: true,
+                courses : ["HTML", "CSS", "JS"]        
+            }
+        });
+    </script>
+</body>
+</html>
