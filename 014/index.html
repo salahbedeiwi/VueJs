@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>014 - Conditional Rendering</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+    </script>
+</head>
+<body>
+    <div id="my-data">
+        <p v-html="courseTitle"></p>
+        <hr>
+        <div v-if="courses.length > 0 && isSubscribed">
+            Yes, you are subscribed...
+            <div v-for="course in courses">
+                {{ course }}
+            </div>
+        </div>
+        <div v-else-if="!isSubscribed">
+            You are not subscribed, but you can subscribe to:
+            <div v-for="course in courses">
+                {{ course }}
+            </div>
+        </div>
+        <div v-else>
+            Not permitted to subs.....
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el : "#my-data",
+            data: {
+                courseTitle : "Conditional Rendering",
+                isSubscribed: false,
+                courses : ["HTML", "CSS", "JS"]            
+            }
+        });
+    </script>
+</body>
+</html>
