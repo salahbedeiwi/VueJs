@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>016 - v-show vs v-if</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+    </script>
+</head>
+<body>
+    <div id="my-data">
+        <p v-html="courseTitle"></p>
+        <hr>
+        <div v-show="isSubscribed">v-show => {{ courses[0] }} </div>
+        <div v-if="isSubscribed">v-if => {{ courses[0] }} </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el : "#my-data",
+            data: {
+                courseTitle : "<b>Directives: v-show vs. v-if</b>",
+                isSubscribed: true,
+                courses : ["HTML", "CSS", "JS"]        
+            }
+        });
+    </script>
+</body>
+</html>
