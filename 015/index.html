@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>015 - v-show</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+    </script>
+</head>
+<body>
+    <div id="my-data">
+        <p v-html="courseTitle"></p>
+        <hr>
+        <div v-show="!isSubscribed">
+            {{ courses[0] }}
+        </div>        
+    </div>
+    <script>
+        var vm = new Vue({
+            el : "#my-data",
+            data: {
+                courseTitle : "v-show Directive",
+                isSubscribed: true,
+                courses : ["HTML", "CSS", "JS"]        
+            }
+        });
+    </script>
+</body>
+</html>
