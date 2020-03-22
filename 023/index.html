@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> [023] v-model directive </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+    </script>
+</head>
+<body>
+    <div id="my-data">
+        <p>Name is: {{ name }} </p>
+        <form action="" method="post">
+            <!-- One-Way Binding -->
+            <input type="text" :value="name">
+            <!-- Two-Way Binding -->
+            <input type="text" v-model="name">
+        </form>
+    </div>
+    <script>    
+        var vm = new Vue({
+            el : "#my-data",
+            //data model
+            data: {
+                name   : "v-model Directive",
+            }
+        });
+    </script>
+</body>
+</html>
