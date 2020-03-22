@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> [022] v-bind directive </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+    </script>
+</head>
+<body>
+    <div id="my-data">
+        <p :style="{color: whiteColor, backgroundColor: BgBlue, 
+                    fontSize: fontSize+'px'}">
+            1. Inline Style
+        </p>
+        <p :style="[customStyle2, customStyle1]"> 
+            2. Bind Object(s) Directly 
+        </p>
+    </div>
+    <script>    
+        var vm = new Vue({
+            el : "#my-data",
+            data: {
+                name         : "V-Bind Lesson",
+                whiteColor   : 'white', //camelCase
+                fontSize     : 26,
+                BgBlue       : 'darkblue', //PascalCase
+                customStyle1 :  
+                                { 
+                                    color    : 'white',
+                                    fontSize : '30px'
+                                },
+                customStyle2 :  
+                                { 
+                                    backgroundColor    : 'red',
+                                    padding : '30px'
+                                }
+            }
+        });
+    </script>
+</body>
+</html>
