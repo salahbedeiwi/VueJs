@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> [021] v-bind directive </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+    </script>
+    <style>
+        .active { border: 2px solid green }
+        .deactivate { border: 2px solid red }
+        .green { color: green }
+        .red { color: red }
+        .bold { font-weight: bold }
+        .italic { font-style: italic }
+        .bigger { font-size: 1.2em }
+        .smaller { font-size: 0.8em }
+        .p10 {padding: 10px }
+    </style>
+    </head>
+<body>
+    <div id="my-data">
+        <!-- 0. String -->
+        <p class="p10 active" :class="isSmaller"> {{ name }}</p>
+        <p :class="extraClasses + ' p10'">{{ name }}</p>
+        <!-- 1. Array -->
+        <p :class="[extraClasses, 'active', isSmaller]"> 2 {{ name }}</p>
+        <p :class="[isSuccess ? 'active' : 'deactivate']"> {{ name }} </p>
+        <!-- 2. Object -->
+        <p :Class="{'red' : hasErrors, bold: hasErrors }">3. {{ name }}</p>
+        <!-- 3. Array of Object -->
+        <p :class="['p10', 
+                isSuccess ? 'active' : 'deactivate',    
+                {'red' : hasErrors, bold: hasErrors }]">
+            4. {{ name }} 
+        </p>
+        <!-- 4. Object From data property -->
+        <p :class="[style2, 'm12333']"> 5. {{ name }} </p>
+    </div>
+    <script>    
+        var vm = new Vue({
+            el : "#my-data",
+            data: {
+                name         : "V-Bind Lesson",
+                id           : "v-bind",
+                isSuccess    : true,
+                isSpecial    : true,
+                hasErrors    : true,
+                extraClasses : "bold italic",
+                isSmaller    : "smaller",
+                style2       :  { 
+                    red : true, 
+                    p10 : true,
+                    active : true
+                }
+            }
+        });
+    </script>
+</body>
+</html>
