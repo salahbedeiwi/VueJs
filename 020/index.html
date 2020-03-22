@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> [020] v-bind directive </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+    </script>
+    </head>
+<body>
+    <div id="my-data">
+        <H1 v-bind:title="title" :id="id">{{ name }}</H1>
+        <img :src="'img/'+images[0].imgSrc" 
+                :alt="images[0].imgTitle" 
+                :title="images[0].imgTitle">
+        <div v-for="(img, index) in images">
+            <img :id="'img-'+index" :src=" 'img/'+ img.imgSrc"
+                    :title="img.imgTitle"
+                        :alt="img.imgTitle" />
+        </div>
+    </div>
+    <script>    
+        var vm = new Vue({
+            el : "#my-data",
+            data: {
+                name         : "V-Bind Lesson",
+                title        : "Page loaded on " + new Date(),
+                id           : "v-bind",
+                images       : [
+                    {
+                        imgSrc : "0.png",
+                        imgTitle : "Image 1"
+                    },
+                    {
+                        imgSrc : "1.png",
+                        imgTitle : "Image 2"
+                    },
+                    {
+                        imgSrc : "2.png",
+                        imgTitle : "Image 3"
+                    }
+                ]
+            }
+        });
+    </script>
+</body>
+</html>
